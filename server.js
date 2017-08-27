@@ -8,6 +8,7 @@ var express = require("express");
 var mongojs = require("mongojs");
 
 var app = express();
+app.use(express.static("app/public"));
 
 var databaseUrl = "zoo";
 var collections = ["animals"];
@@ -56,9 +57,8 @@ db.on("error", function(error) {
 
 // TODO: Make four routes that display results from your zoo collection
 
-// 0: Root: Displays a simple "Hello World" message (no mongo required)
 app.get("/", function(req, res) {
-  res.send("Hello world");
+	res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
 // 1: All: Send JSON response with all animals
