@@ -35,6 +35,7 @@ $(document).ready(function(){
             console.log(response);
             for (i=0; i < response.length; i++) {
                 if (response[i].results[i] === undefined) {
+                    console.log("k");
                 } else {
                     var container = $("<div></div>").attr("id", "container"+i);
                     console.log(response[i].results[i]);
