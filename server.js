@@ -69,8 +69,7 @@ app.get("/all", function(req, res) {
 
 // 2: Name: Send JSON response sorted by name in ascending order
 app.post("/api/comment", function(req, res) {
-  let post = req.body;
-  console.log(post);
+  res.send("Hello!");
     }
   );
 
