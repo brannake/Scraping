@@ -13,11 +13,8 @@ var PORT = process.env.PORT || 3000;
 var app = express();
 app.use(express.static("app/public"));
 
-var databaseUrl = "zoo";
-var collections = ["articles"];
-
 // Use mongojs to hook the database to the db variable
-var db = mongojs("mongodb://<Kevin>:<donk>@ds151963.mlab.com:51963/articles, collections");
+var db = mongojs("mongodb://<Kevin>:<donk>@ds159013.mlab.com:59013/heroku_crm3kbnl");
 
 
 db.on("error", function(error) {

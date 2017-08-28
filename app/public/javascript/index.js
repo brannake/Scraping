@@ -26,6 +26,7 @@ function apiCalltoPostComment(number) {
 $(document).ready(function(){
 
     $("#onlyButton").click(function() {
+        console.log("fuck");
         $.get({
             url: "/all",
             method: "GET"
@@ -34,7 +35,6 @@ $(document).ready(function(){
             console.log(response);
             for (i=0; i < response.length; i++) {
                 if (response[i].results[i] === undefined) {
-                    console.log("fuck");
                 } else {
                     var container = $("<div></div>").attr("id", "container"+i);
                     console.log(response[i].results[i]);
