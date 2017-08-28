@@ -14,7 +14,7 @@ var databaseUrl = "zoo";
 var collections = ["articles"];
 
 // Use mongojs to hook the database to the db variable
-var db = mongojs(databaseUrl, collections);
+var db = mongojs("mongodb://<Kevin>:<donk>@ds151963.mlab.com:51963/articles, collections");
 
 
 db.on("error", function(error) {
