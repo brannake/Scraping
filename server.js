@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({
 // Make public a static dir
 app.use(express.static("app/public"));
 // Database configuration with mongoose
-mongoose.connect("mongodb://<'Kevin'>:<'donk'>@ds159013.mlab.com:59013/heroku_crm3kbnl");
+mongoose.connect("mongodb://heroku_crm3kbnl:ml6ipa2s5dme1h72786hmm4hp9@ds159013.mlab.com:59013/heroku_crm3kbnl");
 var db = mongoose.connection;
 // Show any mongoose errors
 db.on("error", function(error) {
