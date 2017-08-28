@@ -66,7 +66,7 @@ app.get("/all", function(req, res) {
           }
           // Or log the doc
           else {
-            console.log(doc);
+            res.json(doc);            
           }
       });
     })
