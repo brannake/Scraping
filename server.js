@@ -14,7 +14,7 @@ var app = express();
 app.use(express.static("app/public"));
 
 // Use mongojs to hook the database to the db variable
-var db = mongojs("mongodb://<Kevin>:<donk>@ds159013.mlab.com:59013/heroku_crm3kbnl");
+var db = mongojs("mongodb://<Kevin>:<donk>@ds159013.mlab.com:59013/heroku_crm3kbnl", "articles");
 
 
 db.on("error", function(error) {
@@ -69,7 +69,7 @@ app.get("/all", function(req, res) {
 
 // 2: Name: Send JSON response sorted by name in ascending order
 app.post("/api/comment", function(req, res) {
-  res.send("Hello!");
+	res.sendFile(path.join(__dirname, "../public/index.html"));
     }
   );
 
