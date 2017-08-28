@@ -6,20 +6,16 @@ var cheerio = require("cheerio");
 var request = require("request");
 var express = require("express");
 var mongojs = require("mongojs");
+var mongoose = require('mongoose');
+
+mongoose.Promise = Promise;
+mongoose.connect("mongodb://<Kevin>:<donk>@ds159013.mlab.com:59013/heroku_crm3kbnl");
+var db = mongoose.connection;
 
 var PORT = process.env.PORT || 3000;
 
-
 var app = express();
 app.use(express.static("app/public"));
-
-// Use mongojs to hook the database to the db variable
-var db = mongojs("mongodb://<Kevin>:<donk>@ds159013.mlab.com:59013/heroku_crm3kbnl");
-
-
-db.on("error", function(error) {
-  console.log("Database Error:", error);
-});
 
 // TODO: Make four routes that display results from your zoo collection
 
