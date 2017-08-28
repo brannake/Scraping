@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 // Make public a static dir
-app.use(express.static("public"));
+app.use(express.static("app/public"));
 // Database configuration with mongoose
 mongoose.connect("mongodb://<Kevin>:<donk>@ds159013.mlab.com:59013/heroku_crm3kbnl");
 var db = mongoose.connection;
