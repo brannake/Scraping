@@ -12,6 +12,7 @@ var cheerio = require("cheerio");
 mongoose.Promise = Promise;
 // Initialize Express
 var app = express();
+var PORT = process.env.PORT || 3000;
 // Use morgan and body parser with our app
 app.use(logger("dev"));
 app.use(bodyParser.urlencoded({
@@ -67,8 +68,10 @@ app.get("/all", function(req, res) {
             console.log(doc);
           }
       });
-  });
-  
+  })
+})
+});
+
 // Grab an article by it's ObjectId
 app.get("/articles/:id", function(req, res) {
   // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
@@ -116,6 +119,6 @@ app.post("/articles/:id", function(req, res) {
   });
 });
 // Listen on port 3000
-app.listen(3000, function() {
-  console.log("App running on port 3000!");
-});
+app.listen(PORT, function() {
+  console.log("App listening on PORT " + PORT);
+})
