@@ -28,7 +28,7 @@ $(document).ready(function(){
     $("#onlyButton").click(function() {
         console.log("fuck");
         $.get({
-            url: "/all",
+            url: "https://ancient-coast-34053.herokuapp.com/all",
             method: "GET"
         }).done(function(response) {
             $("body").html("");
