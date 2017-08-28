@@ -14,7 +14,7 @@ var app = express();
 app.use(express.static("app/public"));
 
 // Use mongojs to hook the database to the db variable
-var db = mongojs("mongodb://<Kevin>:<donk>@ds159013.mlab.com:59013/heroku_crm3kbnl", "articles");
+var db = mongojs("mongodb://<Kevin>:<donk>@ds159013.mlab.com:59013/heroku_crm3kbnl");
 
 
 db.on("error", function(error) {
