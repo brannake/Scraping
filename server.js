@@ -68,32 +68,11 @@ app.get("/all", function(req, res) {
   });
 
 // 2: Name: Send JSON response sorted by name in ascending order
-app.get("/name", function(req, res) {
-  db.articles.find({}).sort({name: 1}, function(err, data) {
-    // Log any errors if the server encounters one
-    if (err) {
-      console.log(err);
+app.post("/api/comment", function(req, res) {
+  let post = req.body;
+  console.log(post);
     }
-    // Otherwise, send the result of this query to the browser
-    else {
-      res.json(data);
-    }
-  });
-});
-
-// 3: Weight: Send JSON response sorted by weight in descending order
-app.get("/weight", function(req, res) {
-  db.articles.find({}, {"weight": 1}).sort({"weight": 1})
-  }, function(err, data) {
-    // Log any errors if the server encounters one
-    if (err) {
-      console.log(err);
-    }
-    // Otherwise, send the result of this query to the browser
-    else {
-      res.json(data);
-    }
-  });
+  );
 
 // Set the app to listen on port 3000
 app.listen(3000, function() {
