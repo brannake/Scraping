@@ -47,12 +47,13 @@ app.get("/all", function(req, res) {
       var $ = cheerio.load(html);
     
       // An empty array to save the data that we'll scrape
-      var result = {};
-    
+      var all_results = [];
       // Select each element in the HTML body from which you want information.
       // NOTE: Cheerio selectors function similarly to jQuery's selectors,
       // but be sure to visit the package's npm page to see how it works
       $("a.title").each(function(i, element) {
+
+        var result = {};
     
         result.link = $(element).attr("href");
         result.title = $(element).text();
@@ -66,11 +67,25 @@ app.get("/all", function(req, res) {
           }
           // Or log the doc
           else {
-            res.json(doc);            
+            console.log(doc);          
           }
       });
-    })
-  })
+    });
+    Article.find({})
+    // ..and populate all of the notes associated with it
+    .populate("note")
+    // now, execute our query
+    .exec(function(error, doc) {
+      // Log any errors
+      if (error) {
+        console.log(error);
+      }
+      // Otherwise, send the doc to the browser as a json object
+      else {
+        res.json(doc);
+        }
+    });
+  });
 });
 
 // Listen on port 3000

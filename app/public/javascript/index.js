@@ -32,15 +32,15 @@ $(document).ready(function(){
             method: "GET"
         }).done(function(response) {
             $("body").html("");
-            console.log(response);
+            console.log(response[0]);
             for (i=0; i < response.length; i++) {
-                if (response[i].results[i] === undefined) {
+                if (response[i] === undefined) {
                     console.log("k");
                 } else {
                     var container = $("<div></div>").attr("id", "container"+i);
-                    console.log(response[i].results[i]);
-                    var title = $("<div>"+response[i].results[i].title+"</div>");
-                    var link = $("<a>link</a>").attr("href", response[i].results[i].link);
+                    console.log(response[i]);
+                    var title = $("<div>"+response[i].title+"</div>");
+                    var link = $("<a>link</a>").attr("href", response[i].link);
                     var commentButton = $("<button type='button' id='comment"+i+"'>Comment</button>");
                     $(container).append(title);
                     $(container).append(link);
